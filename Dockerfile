@@ -16,25 +16,21 @@ WORKDIR /opt/app
 RUN npm install
 RUN npm run build
 RUN pip install -r requirements.txt
-# RUN make index
-# RUN make frontend (cd frontend && python -m http.server)
-# RUN make backend
-
 
 # expose port
-EXPOSE 80
+EXPOSE 8080
 EXPOSE 5000
 
 # start app
-
-###### frontend
-# http-server frontend/ -p 80
-
-###### backend
-# python runbackend.py
-
-# CMD [ "python", "./app.py" ]
+CMD (http-server frontend -s -p 8080 && python -s runbackend.py) &
 
 ###### UTILS
+
+# Run Elasticsearch
 # docker run -dp 9200:9200 --net cheermeapp --name es elasticsearch
+
+# Run CheerMeApp
+# dev
 # docker run -it --rm --net cheermeapp clarketm/cheermeapp bash
+# prod
+# docker run -d --net cheermeapp -p 5000:5000 -p 8080:8080 --name cheermeapp-web clarketm/cheermeapp

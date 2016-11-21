@@ -1,0 +1,12 @@
+version: "2"
+services:
+  es:
+    image: elasticsearch
+  web:
+    image: clarketm/cheermeapp
+    command: (http-server frontend -s -p 8080 && python -s runbackend.py) &
+    ports:
+      - "5000:5000"
+      - "8080:8080"
+    volumes:
+      - .:/code
