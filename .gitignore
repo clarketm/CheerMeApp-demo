@@ -3,3 +3,8 @@ backend/__pycache__
 frontend/bootstrap*
 frontend/lib
 
+node_modules
+
+.idea
+*.iml
+

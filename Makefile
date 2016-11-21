@@ -12,15 +12,15 @@ help::
 
 .PHONY=frontend
 frontend::
-	(cd frontend && python -m http.server)
+	http-server frontend -s -p 8080 &
 
 .PHONY=backend
 backend::
-	python runbackend.py
+	python -s runbackend.py &
 
 .PHONY=index
 index::
-	curl -XDELETE http://localhost:9200/cheermeapp; echo;
-	curl -XPOST http://localhost:9200/cheermeapp -d @mapping.json; echo
-	curl -XPOST http://localhost:9200/_bulk --data-binary @data/beers.data; echo
+	curl -XDELETE http://es:9200/cheermeapp; echo;
+	curl -XPOST http://es:9200/cheermeapp -d @mapping.json; echo
+	curl -XPOST http://es:9200/_bulk --data-binary @data/beers.data; echo
 
