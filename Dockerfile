@@ -14,7 +14,6 @@ WORKDIR /opt/app
 
 # fetch app specific deps
 RUN npm install
-RUN npm run build
 RUN pip install -r requirements.txt
 
 # expose port

@@ -3,29 +3,29 @@ var myApp = angular.module("myApp", ["ngRoute", "ngResource", "myApp.services"])
 var services = angular.module("myApp.services", ["ngResource"])
 services
 .factory('Beer', function($resource) {
-    return $resource('http://localhost:5000/api/v1/beers/:id', {id: '@id'}, {
+    return $resource('http://web:5000/api/v1/beers/:id', {id: '@id'}, {
         get: { method: 'GET' },
         delete: { method: 'DELETE' }
     });
 })
 .factory('Beers', function($resource) {
-    return $resource('http://localhost:5000/api/v1/beers', {}, {
+    return $resource('http://web:5000/api/v1/beers', {}, {
         query: { method: 'GET', isArray: true },
         create: { method: 'POST', }
     });
 })
 .factory('Styles', function($resource) {
-    return $resource('http://localhost:5000/api/v1/styles/:id', {id: '@id'}, {
+    return $resource('http://web:5000/api/v1/styles/:id', {id: '@id'}, {
         get: { method: 'GET' }
     });
 })
 .factory('Style', function($resource) {
-    return $resource('http://localhost:5000/api/v1/styles', {}, {
+    return $resource('http://web:5000/api/v1/styles', {}, {
         query: { method: 'GET', isArray: true}
     });
 })
 .factory('Search', function($resource) {
-    return $resource('http://localhost:5000/api/v1/search', {q: '@q'}, {
+    return $resource('http://web:5000/api/v1/search', {q: '@q'}, {
         query: { method: 'GET', isArray: true}
     });
 });

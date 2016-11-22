@@ -5,7 +5,7 @@ help::
 	@echo ""
 	@echo "Then run:"
 	@echo "make index #(re)create Elasticsearch index"
-	@echo "make backend #Run backend service on http://localhost:5000"
+	@echo "make backend #Run backend service on http://0.0.0.0:5000"
 	@echo "make frontend #Run frontend service on http://localhost:8000"
 	@echo
 	@echo "After performing the above, point your browser to http://localhost:8000"
